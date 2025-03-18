@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class= "homepage container">
+  <%= image_tag "logo_MamaPopin_v1.jpeg" %>
+
+  <div class= "container d-flex-vertical align-justify">
+    <p>Existing User ?</p>
+    <li class="nav-item btn btn-success">
+      <%= link_to "Log-in", new_user_session_path, class: "nav-link" %>
+    </li>
+
+    <p>New User ?</p>
+    <li class="nav-item btn btn-danger">
+      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+    </li>
+  </div>
+
+</div>
