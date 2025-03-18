@@ -11,8 +11,11 @@
   </head>
 
   <body>
+    <%# PEC : This If statement enables to only see the NAVBAR outside the root page, the sign-up and the login %>
+    <% if (request.path != "/users/sign_in" && request.path != "/users/sign_up" && request.path != "/") %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= yield %>
-    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
   </body>
 </html>
