@@ -31,5 +31,5 @@ end
 
 
 def recipe_params
-  params.require(:recipe).permit(:title, :description, :duration)
+  params.require(:recipe).permit(:title, :description, :duration, :description_easy, :duration_easy)
 end
