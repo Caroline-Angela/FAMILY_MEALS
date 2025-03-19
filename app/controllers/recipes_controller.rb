@@ -1,10 +1,17 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
-    @user = current_user
-    @mycomments = Comment.where(user_id: @user.id)
-    @myrecipes = @mycomments.map do |comment|
-      Recipe.find_by(id: comment.recipe_id)
+    @mycomments = Comment.where(user_id: current_user.id)
+    @myrecipes = current_user.recipes
+    @recipes -= @myrecipes
+
+    if params[:query].present?
+      sql_subquery = 'recipes.title ILIKE :query
+        OR recipes.description ILIKE :query
+        OR ingredients.ingredient_name ILIKE :query'
+      @recipes = Recipe.joins(meal_ingredients: :ingredient).where(sql_subquery, query:"%#{params[:query]}%")
+      @myrecipes = @myrecipes.joins(meal_ingredients: :ingredient).where(sql_subquery, query:"%#{params[:query]}%")
+      @recipes -= @myrecipes
     end
   end
 
