@@ -115,6 +115,6 @@ puts "Menus created: #{Menu.count}"
 
 
 puts "Creating comments."
-Comment.create!(rating: 5, recipe: recipe1, user: user1)
+Comment.create!(rating: 5, recipe: recipe1, user: user1, favorite: true)
 Comment.create!(rating: 3, recipe: recipe2, user: user2)
 puts "Comments created: #{Comment.count}"
