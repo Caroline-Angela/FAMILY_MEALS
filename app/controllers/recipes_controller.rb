@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
     @myrecipes = @mycomments.map do |comment|
       Recipe.find_by(id: comment.recipe_id)
     end
-    raise
   end
 
   def show

@@ -1,13 +1,53 @@
 
 <div class="container">
-  <h1>My Cook-book # <%= @user.first_name %></h1>
+  
+  <h1>My Cook-book</h1>
+    <div>
+      <div>
+        <ul class="nav tabs-cookbook" id="myTab" role="tablist">
 
-  <ul class="list-inline tabs-cookbook">
-    <li>
-      <a href="#" class="tab-cookbook active">My Recipes</a>
-    </li>
-    <li>
-      <a href="#" class="tab-cookbook">Suggestions</a>
-    </li>
-  </ul>
+          <li class=" " role="presentation">
+            <button class="tab-cookbook active" id="myrecipes-tab" data-bs-toggle="tab" data-bs-target="#myrecipes" type="button" role="tab" aria-controls="myrecipes" aria-selected="false">My Recipes</button>
+          </li>
+          <li class=" " role="presentation">
+            <button class="tab-cookbook" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true">Suggestions</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane show active" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
+            <ul>
+              <% @myrecipes.each do |recipe| %>
+                <li><div class="card-recipe">
+                    <%=recipe.title%>
+                    <%=recipe.description%>
+                    <%=recipe.duration%>
+                  </div></li>
+                <% end %>
+            </ul>
+          </div>
+          <div class="tab-pane " id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
+            <ul>
+              <% @recipes.each do |recipe| %>
+                <li><div class="card-recipe">
+                  <%=recipe.title%>
+                  <%=recipe.description%>
+                  <%=recipe.duration%>
+                </div></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-alert">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
+
 </div>
