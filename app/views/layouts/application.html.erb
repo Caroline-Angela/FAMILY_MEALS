@@ -16,7 +16,15 @@
     <% if (request.path != "/users/sign_in" && request.path != "/users/sign_up" && request.path != "/") %>
       <%= render "shared/navbar" %>
     <% end %>
+
     <%= yield %>
+
+  <%# PEC : This If statement enables to only see the BOTTOM NAVBAR when a User is loged in %>
+    <% if (current_user.present?) %>
+      <%= render "shared/bottom_navbar" %>
+      <% end %>
+
     <%= render "shared/flashes" %>
+
   </body>
 </html>
