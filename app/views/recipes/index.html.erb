@@ -16,57 +16,52 @@
 
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane show active" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
-            <ul>
+
               <% @myrecipes.each do |recipe| %>
-                <li><div class="card-recipe">
-                    <%=recipe.title%>
-                    <%=recipe.description%>
-                    <%=recipe.duration%>
-                  </div></li>
+                <div class="card-recipe d-flex">
+                    <h6> <em><strong> <%=recipe.title%></strong> </em></h6>
+                    <p><%=recipe.duration%> ' </p>
+                  </div>
                 <% end %>
-            </ul>
-                          <div class="row justify-content-center">
-              <div class="my-3">
-              </div>
-              <div class="col-sm-8 my-3">
-                <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
-                <%= text_field_tag :query,
-                        params[:query],
-                        class: "form-control",
-                        placeholder: "Search"
-                    %>
-                <%= submit_tag "Go", name: "", class: "btn btn-success" %>
-                <% end %>
-              </div>
-              </div>
-          </div>
-          <div class="tab-pane " id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
-            <ul>
-              <% @recipes.each do |recipe| %>
-                <li><div class="card-recipe">
-                  <%=recipe.title%>
-                  <%=recipe.description%>
-                  <%=recipe.duration%>
-                </div></li>
-              <% end %>
-            </ul>
-            <div class="container row">
+
               <div class="row justify-content-center">
-              <div class="my-3">
+                <div class="col-sm-8 my-3">
+                  <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
+                  <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Search"
+                      %>
+                  <%= submit_tag "Go", name: "", class: "btn btn-success" %>
+                  <% end %>
+                </div>
               </div>
-              <div class="col-sm-8 my-3">
-                <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
-                <%= text_field_tag :query,
-                        params[:query],
-                        class: "form-control",
-                        placeholder: "Search"
-                    %>
-                <%= submit_tag "Go", name: "", class: "btn btn-success" %>
-                <% end %>
-              </div>
-              </div>
+
           </div>
+
+          <div class="tab-pane " id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
+
+              <% @recipes.each do |recipe| %>
+               <div class="card-recipe d-flex">
+                    <h6> <em><strong> <%=recipe.title%></strong> </em></h6>
+                    <p><%=recipe.duration%> ' </p>
+                </div>
+              <% end %>
+
+              <div class="row justify-content-center">
+                <div class="col-sm-8 my-3">
+                  <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
+                  <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Search" %>
+                  <%= submit_tag "Go", name: "", class: "btn btn-success" %>
+                  <% end %>
+                </div>
+              </div>
+
         </div>
+
       </div>
     </div>
 
