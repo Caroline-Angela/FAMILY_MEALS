@@ -1,71 +1,33 @@
 
 <div class="container">
-
   <h1>My Cook-book</h1>
-    <div>
-      <div>
+
+    <div data-controller="search-suggestions">
+      <div class="row justify-content-center">
         <ul class="nav tabs-cookbook" id="myTab" role="tablist">
+          <li class=" " role="presentation">
+
+            <button class="tab-cookbook <%="active" if @active_tab == "myfavorites"%> " id="myrecipes-tab" data-bs-toggle="tab" data-bs-target="#myrecipes" type="button" role="tab" aria-controls="myrecipes" aria-selected="false" data-action="click->search-suggestions#toggleHiddenField">My Recipes</button></li>
+
+
+
 
           <li class=" " role="presentation">
-            <button class="tab-cookbook active" id="myrecipes-tab" data-bs-toggle="tab" data-bs-target="#myrecipes" type="button" role="tab" aria-controls="myrecipes" aria-selected="false">My Recipes</button>
-          </li>
-          <li class=" " role="presentation">
-            <button class="tab-cookbook" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true">Suggestions</button>
-          </li>
+            <button class="tab-cookbook <%="active" if @active_tab == "suggestions"%>" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true" data-action="click->search-suggestions#toggleHiddenField">Suggestions</button></li>
         </ul>
+      </div>
 
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane show active" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
-
-              <% @myrecipes.each do |recipe| %>
-                <div class="card-recipe d-flex">
-                    <h6> <em><strong> <%=recipe.title%></strong> </em></h6>
-                    <p><%=recipe.duration%> ' </p>
-                  </div>
-                <% end %>
-
-              <div class="row justify-content-center">
-                <div class="col-sm-8 my-3">
-                  <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
-                  <%= text_field_tag :query,
-                          params[:query],
-                          class: "form-control",
-                          placeholder: "Search"
-                      %>
-                  <%= submit_tag "Go", name: "", class: "btn btn-success" %>
-                  <% end %>
-                </div>
-              </div>
-
-          </div>
-
-          <div class="tab-pane " id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
-
-              <% @recipes.each do |recipe| %>
-               <div class="card-recipe d-flex">
-                    <h6> <em><strong> <%=recipe.title%></strong> </em></h6>
-                    <p><%=recipe.duration%> ' </p>
-                </div>
-              <% end %>
-
-              <div class="row justify-content-center">
-                <div class="col-sm-8 my-3">
-                  <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
-                  <%= text_field_tag :query,
-                          params[:query],
-                          class: "form-control",
-                          placeholder: "Search" %>
-                  <%= submit_tag "Go", name: "", class: "btn btn-success" %>
-                  <% end %>
-                </div>
-              </div>
-
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane <%="show active" if @active_tab == "myfavorites"%>" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
+          <%= render 'recipes/list', recipes: @myrecipes %>
+          <%= render 'recipes/search' %>
         </div>
 
+        <div class="tab-pane <%="show active" if @active_tab == "suggestions"%>" id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
+          <%= render 'recipes/list', recipes: @recipes %>
+          <%= render 'recipes/search' %>
+        </div>
       </div>
     </div>
-
-
-
 
 </div>

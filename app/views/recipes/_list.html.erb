@@ -1,0 +1,13 @@
+<div class="row justify-content-center">
+  <% recipes.each do |recipe| %>
+    <div class="card-recipe d-flex">
+        <div>
+          <h6> <em><strong> <%=recipe.title%></strong> </em></h6>
+          <p>
+          
+          </p>
+        </div>
+        <p><%=recipe.duration%> ' </p>
+    </div>
+  <% end %>
+</div>

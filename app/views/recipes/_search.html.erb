@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search" %>
+
+      <% if (@active_tab == "suggestions") %>
+        <%= hidden_field_tag :active_tab, "suggestions", data: { search_suggestions_target: "hiddenField" } %>
+      <% else %>
+        <%= hidden_field_tag :active_tab, "myfavorites", data: { search_suggestions_target: "hiddenField" } %>
+      <% end %>
+
+    <%= submit_tag "Go", name: "", class: "btn btn-success" %>
+
+    <% end %>
+  </div>
+</div>

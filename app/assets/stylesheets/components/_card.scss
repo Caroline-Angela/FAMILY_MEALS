@@ -8,6 +8,7 @@
   border: 1px solid $blue;
   padding: 5px;
   margin: 5px;
+  justify-content: space-between;
 }
 
 .card-menu img {
@@ -44,5 +45,6 @@
   margin-top:  8px;
   margin-bottom:  5px;
   justify-content: space-between;
-  padding: 10px
+  padding: 10px;
+  align-items: center;
 }
