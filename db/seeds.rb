@@ -109,8 +109,12 @@ puts "Groceries created: #{Grocery.count}"
 
 
 puts "Creating menus."
-menu1 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Rose", menu_style: "Casual")
-menu2 = Menu.create!(calendar: calendar2, recipe: recipe2, date: Date.today + 1, participants: 3, cook_name: "Mary", menu_style: "Formal")
+# Note : Menu Style 1 = normal. Menu Style 2 = easy
+menu1 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Rose", menu_style: 1)
+menu2 = Menu.create!(calendar: calendar2, recipe: recipe2, date: Date.today + 1, participants: 3, cook_name: "Mary", menu_style: 2)
+menu3 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 1, participants: 4, cook_name: "Rose", menu_style: 1)
+menu4 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today + 2, participants: 4, cook_name: "Rose", menu_style: 1)
+menu5 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 4, participants: 4, cook_name: "Rose", menu_style: 1)
 puts "Menus created: #{Menu.count}"
 
 
@@ -118,3 +122,5 @@ puts "Creating comments."
 Comment.create!(rating: 5, recipe: recipe1, user: user1, favorite: true)
 Comment.create!(rating: 3, recipe: recipe2, user: user2)
 puts "Comments created: #{Comment.count}"
+
+puts "DB successfully seeded !"

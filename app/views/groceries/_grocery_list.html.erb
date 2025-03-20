@@ -1,0 +1,20 @@
+<!-- groceries list  -->
+
+<div class="groceries-list mb-4">
+  <% items.each do |grocery| %>
+    <div class="grocery-item <%= grocery.completed ? 'completed' : '' %>">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h5><%= grocery.meal_ingredient.ingredient.ingredient_name %></h5>
+          <p>Portion: <%= grocery.meal_ingredient.portion %>
+             <%= grocery.meal_ingredient.ingredient.category == "Meat" ? "grams" :
+                 grocery.meal_ingredient.ingredient.category == "Cooking Essentials" ? "tablespoons" : "units" %>
+          </p>
+        </div>
+        <%= button_to mark_complete_grocery_path(grocery), method: :patch, class: "btn #{grocery.completed ? 'btn-success' : 'btn-secondary'}" do %>
+          <%= grocery.completed ? 'Completed' : 'Mark as Complete' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

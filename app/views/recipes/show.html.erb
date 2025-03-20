@@ -1,12 +1,62 @@
-
-<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title><%= @recipe.title %> - Recipe</title>
-    <%# ein icon muss hier stattdessen hin <%= stylesheet_link_tag 'recipe'#, media: 'all'# %>
-</head>
-<body>
+  </head>
+    <body>
 
-<h1 class="fw-bold"><%= @recipe.title %></h1>
+    <div class="cards_show1">
+      <div class="recipe_img" >
+          <h1 class="fw-bold"><%= @recipe.title %></h1>
+        <%= image_tag "penne-arrabbiata.png", alt: "Penne Arrabbiata", width: 200 %>
+         <% if @recipe.present? %>
+          <%  %> <%#new bild %>
+        <% end %>
+      </div>
+      <h1> Test </h1>
+
+      <%#
+      <%= f.input :date_field,
+            as: :string,
+            input_html: { data: { controller: "flatpickr" } } %>
+    <div class="assignment">
+    <div class="btn-group">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+        Clickable outside
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside">
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        <li><a class="dropdown-item" href="#">Menu item</a></li>
+      </ul>
+      </div>
+      </div>
+
+      </div>
+
+      <div class="cards_show2">
+        <div class="recipe border-top border-end border-dark">
+        <% if @recipe.description.present? %>
+        <h2> Recipe <%= @recipe.duration %></h2>
+        <%= @recipe.description %>
+        <% end %>
+        </div>
+
+        <div class="ingredients border-top border-dark">
+        <h2 class="fw-bold"> Ingredients </h2>
+          <% if @meal_ingredients.any? %>
+          <ul>
+            <% @meal_ingredients.each do |meal_ingredient| %>
+              <li>
+              <%= meal_ingredient.ingredient.ingredient_name %>
+              <%= meal_ingredient.portion %>
+              </li>
+              <% end %>
+            </ul>
+          <% end %>
+      </div>
+     <div class="cards_show2">
+    <body>
+</html>

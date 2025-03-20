@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
@@ -15,7 +16,15 @@
     <% if (request.path != "/users/sign_in" && request.path != "/users/sign_up" && request.path != "/") %>
       <%= render "shared/navbar" %>
     <% end %>
+
     <%= yield %>
+
+  <%# PEC : This If statement enables to only see the BOTTOM NAVBAR when a User is loged in %>
+    <% if (current_user.present?) %>
+      <%= render "shared/bottom_navbar" %>
+      <% end %>
+
     <%= render "shared/flashes" %>
+
   </body>
 </html>
