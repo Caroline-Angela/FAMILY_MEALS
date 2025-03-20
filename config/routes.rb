@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :groceries, only: [:index, :update] do
+    member do
+      patch :mark_complete
+    end
+  end
   devise_for :users
   root to: "pages#home"
 
