@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_calendars
   has_many :comments
+  has_many :recipes, through: :comments
 end

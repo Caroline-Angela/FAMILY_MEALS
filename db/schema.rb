@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_113208) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "rating"
+    t.boolean "favorite"
     t.bigint "recipe_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
