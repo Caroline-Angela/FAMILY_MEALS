@@ -6,6 +6,10 @@ class RecipesController < ApplicationController
     @myrecipes = current_user.recipes
     @recipes -= @myrecipes
 
+    @usercalendar = UserCalendar.find_by(user_id: current_user.id)
+    @calendar = @usercalendar.calendar
+    @menus = Menu.where(calendar_id: @calendar.id)
+    
     @active_tab = params[:active_tab] || "myfavorites"
 
     if params[:query].present?
