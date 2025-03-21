@@ -1,5 +1,5 @@
 import { Application } from "@hotwired/stimulus"
-import flatpickr from "flatpickr";
+// import flatpickr from "flatpickr";
 
 
 
