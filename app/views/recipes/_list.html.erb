@@ -7,17 +7,18 @@
           <p>
             <% if @comments.find_by(recipe_id: recipe.id)&.favorite %>
               <% if @menus.where(recipe_id: recipe.id).present? %>
-              <% if @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date < Date.today %>
-              Last time this meal was cooked :
-                <%=  @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date  %>
-                <% else %>
-                Next time this meal is planned :
-                <%=  @menus.where(recipe_id: recipe.id).where('date >= ?', Date.today).order(date: :asc).first&.date  %>
-                <% end %>
-                <% else %>
-                  You have never tried this meal
-                <% end %>
+                  <% if @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date < Date.today %>
+                  Last time this meal was cooked :
+                  <%=  @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date  %>
+                  <% else %>
+                  Next time this meal is planned :
+                  <%=  @menus.where(recipe_id: recipe.id).where('date >= ?', Date.today).order(date: :asc).first&.date  %>
+                  <% end %>
+              <% else %>
+                You have never tried this meal
               <% end %>
+            <% else %>
+            <% end %>
 
           </p>
         </div>

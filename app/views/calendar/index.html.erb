@@ -1,17 +1,21 @@
 <div class="container">
   <h1>Welcome <strong> <%= @usercalendar.user.first_name.capitalize %> <%= @usercalendar.user.last_name.capitalize %></strong> to your Calendar</h1>
 
-  <% @datecount = Date.today %>
-  <% @menus.each do |menu| %>
-    <% if menu.date == @datecount %>
+    <% @datecount = Date.today %>
+    <% @menus.sort_by(&:date).each do |menu| %>
+      <% while @datecount < menu.date %>
+        <%= render 'card_empty', date: @datecount %>
+        <% @datecount += 1 %>
+      <% end %>
       <%= render 'card_full', menu: menu %>
-    <% else %>
-      <%= render 'card_empty', date: @datecount %>
-      <%= render 'card_full', menu: menu %>
+      <% @datecount += 1 %>
     <% end %>
-    <% @datecount += 1 %>
-  <% end %>
 
-    <%= render 'card_empty', date: @datecount + 1%>
+    <% while @datecount <= @menus.maximum(:date) %>
+      <%= render 'card_empty', date: @datecount %>
+      <% @datecount += 1 %>
+    <% end %>
+
+    <%= render 'card_empty', date: @datecount%>
 
 </div>

@@ -74,6 +74,23 @@ Drain the pasta and the tomato sauce to it. Serve with shavings of parmesan.",
   description_easy: " Penne with spicy tomato sauce.",
   duration_easy: 20
 )
+
+recipe4 = Recipe.create!(
+  title: "Smoking Salmon",
+  description: "This salmon will make you like to smoke again!",
+  duration: 45,
+  description_easy: " baked chicken with fewer ingredients.",
+  duration_easy: 35
+)
+
+recipe5 = Recipe.create!(
+  title: "Sad Sardine",
+  description: "Simply some Sardines out of the can.",
+  duration: 5,
+  description_easy: " baked chicken with fewer ingredients.",
+  duration_easy: 5
+)
+
 puts "Recipes created: #{Recipe.count}"
 
 
@@ -113,15 +130,18 @@ puts "Creating menus."
 menu1 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Rose", menu_style: 1)
 menu2 = Menu.create!(calendar: calendar2, recipe: recipe2, date: Date.today + 1, participants: 3, cook_name: "Mary", menu_style: 2)
 menu3 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 1, participants: 4, cook_name: "Rose", menu_style: 1)
-menu4 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today + 3, participants: 4, cook_name: "Rose", menu_style: 1)
-menu5 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 5, participants: 4, cook_name: "Rose", menu_style: 1)
+menu4 = Menu.create!(calendar: calendar1, recipe: recipe3, date: Date.today + 3, participants: 4, cook_name: "Rose", menu_style: 1)
+menu5 = Menu.create!(calendar: calendar1, recipe: recipe4, date: Date.today + 5, participants: 4, cook_name: "Rose", menu_style: 1)
 puts "Menus created: #{Menu.count}"
 
 
 puts "Creating comments."
-Comment.create!(rating: 5, recipe: recipe1, user: user1, favorite: true)
-Comment.create!(rating: 3, recipe: recipe2, user: user2)
+Comment.create!(rating: 5, recipe: recipe1, user: user1, favorite: false)
+Comment.create!(rating: 3, recipe: recipe2, user: user2, favorite: true)
+Comment.create!(rating: 4, recipe: recipe3, user: user1, favorite: true)
 Comment.create!(rating: 4, recipe: recipe2, user: user1, favorite: true)
+Comment.create!(rating: 4, recipe: recipe4, user: user1, favorite: false)
+Comment.create!(rating: 4, recipe: recipe5, user: user1, favorite: true)
 puts "Comments created: #{Comment.count}"
 
 puts "DB successfully seeded !"
