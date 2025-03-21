@@ -34,7 +34,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     # @ingredients = @recipe.ingredients
     @meal_ingredients = @recipe.meal_ingredients
-    # @menu = @recipe.menu
+    @menus = @recipe.menus
+
+    @comments = Comment.where(user_id: current_user.id)
+    # @myrecipes = current_user.recipes
+     @comments = @recipe.comments
   end
 
   def new
