@@ -5,9 +5,7 @@ class Recipe < ApplicationRecord
   has_many :menus
   has_many :ingredients, through: :meal_ingredients
 
-  # date flickr
-  validates :opening_date, presence: true
-  validate :future_date
+
 
   private
 
