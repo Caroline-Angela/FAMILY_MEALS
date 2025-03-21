@@ -48,3 +48,15 @@
   padding: 10px;
   align-items: center;
 }
+
+.card-plus {
+  justify-content: right;
+  display: flex;
+  align-items: right;
+}
+
+.card-plus img {
+  height: 60px;
+  width: auto;
+  object-fit: center;
+}

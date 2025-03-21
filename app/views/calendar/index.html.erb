@@ -1,6 +1,12 @@
 <div class="container">
   <h1>Welcome <strong> <%= @usercalendar.user.first_name.capitalize %> <%= @usercalendar.user.last_name.capitalize %></strong> to your Calendar</h1>
 
+    <%= link_to new_recipe_path do%>
+    <div class="card-plus">
+      <%= image_tag "plus_v1.jpeg"%>
+    </div>
+    <% end %>
+
     <% @datecount = Date.today %>
     <% @menus.sort_by(&:date).each do |menu| %>
       <% while @datecount < menu.date %>
