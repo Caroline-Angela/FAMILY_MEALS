@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :recipes, except: :update do
     resources :menus, only: :create
+    
   end
 
 end
