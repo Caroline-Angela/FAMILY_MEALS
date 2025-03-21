@@ -5,11 +5,33 @@
         <h2> <%= menu.recipe.title %> </h2>
         <h4> <%= menu.date %> </h4>
       </div>
-      <div><%= image_tag "icon_cart_v1.jpeg" %>
-        <p>grocery %</p>
+      <div>
+     
+
+        <% if @completed_groceries.nil? %>
+           <p>0 %</p>
+        <% else %>
+          <% @completed_groceries_recipe = Grocery
+                    .joins(meal_ingredient: { recipe: :menus })
+                    .where(groceries: { completed: true })
+                    .where(menus: { id: menu.id })
+                    &.count.to_i %>
+
+          <%  @recipe_groceries = Grocery
+                    .joins(meal_ingredient: { recipe: :menus })
+                    .where(menus: { id: menu.id })
+                    &.count.to_i %>
+          <% if @recipe_groceries == 0  %>
+                  <p> NA %</p>
+          <% else %>
+           <% percent = (100* @completed_groceries_recipe / @recipe_groceries).to_f %>
+             <p> <strong><%= percent%></strong>   %</p>
+          <% end %>
+        <% end %>
       </div>
       <div><%= image_tag "logo_MamaPopin_v1.jpeg" %>
-        <p> <%= menu.cook_name %> </p>
+
+        <h4> <%= menu.cook_name %> </h4>
       </div>
     </div>
   <% end %>

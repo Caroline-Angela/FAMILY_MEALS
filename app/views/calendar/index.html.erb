@@ -7,6 +7,8 @@
     </div>
     <% end %>
 
+    <%= render 'card_titles' %>
+
     <% @datecount = Date.today %>
     <% @menus.sort_by(&:date).each do |menu| %>
       <% while @datecount < menu.date %>

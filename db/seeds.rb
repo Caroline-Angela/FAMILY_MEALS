@@ -18,8 +18,8 @@ user1 = User.create!(
   email: "aaa@gmail.com",
   password: "12345678",
   password_confirmation: "12345678",
-  first_name: "Rose",
-  last_name: "santa"
+  first_name: "Paul",
+  last_name: "Coppée"
 )
 
 user2 = User.create!(
@@ -120,18 +120,18 @@ meal_ingredient9 = MealIngredient.create!(recipe: recipe3, ingredient: ingredien
 meal_ingredient10 = MealIngredient.create!(recipe: recipe3, ingredient: ingredient10, portion: 20)
 puts "Creating groceries."
 [meal_ingredient1, meal_ingredient2, meal_ingredient3, meal_ingredient4, meal_ingredient5, meal_ingredient6, meal_ingredient7, meal_ingredient8, meal_ingredient9, meal_ingredient10].each do |meal_ingredient|
-  Grocery.create!(meal_ingredient: meal_ingredient)
+  Grocery.create!(meal_ingredient: meal_ingredient, completed: [true, false].sample)
 end
 puts "Groceries created: #{Grocery.count}"
 
 
 puts "Creating menus."
 # Note : Menu Style 1 = normal. Menu Style 2 = easy
-menu1 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Rose", menu_style: 1)
+menu1 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Paul", menu_style: 1)
 menu2 = Menu.create!(calendar: calendar2, recipe: recipe2, date: Date.today + 1, participants: 3, cook_name: "Mary", menu_style: 2)
-menu3 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 1, participants: 4, cook_name: "Rose", menu_style: 1)
-menu4 = Menu.create!(calendar: calendar1, recipe: recipe3, date: Date.today + 3, participants: 4, cook_name: "Rose", menu_style: 1)
-menu5 = Menu.create!(calendar: calendar1, recipe: recipe4, date: Date.today + 5, participants: 4, cook_name: "Rose", menu_style: 1)
+menu3 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 1, participants: 4, cook_name: "Tristan", menu_style: 1)
+menu4 = Menu.create!(calendar: calendar1, recipe: recipe3, date: Date.today + 3, participants: 4, cook_name: "Hippolyte", menu_style: 1)
+menu5 = Menu.create!(calendar: calendar1, recipe: recipe4, date: Date.today + 5, participants: 4, cook_name: "Paul", menu_style: 1)
 puts "Menus created: #{Menu.count}"
 
 

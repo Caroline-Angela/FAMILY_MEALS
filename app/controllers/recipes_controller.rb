@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
       @myrecipes = @myrecipes.joins(meal_ingredients: :ingredient)
                              .where(sql_subquery, query:"%#{params[:query]}%")
                              .distinct
-#        @recipes -= @myrecipes
+      @recipes -= @myrecipes
     end
   end
 
