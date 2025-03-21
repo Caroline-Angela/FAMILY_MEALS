@@ -1,6 +1,11 @@
 
 <div class="container">
   <h1>My Cook-book</h1>
+        <%= link_to new_recipe_path do%>
+    <div class="card-plus">
+      <%= image_tag "plus_v1.jpeg"%>
+    </div>
+    <% end %>
 
     <div data-controller="search-suggestions">
       <div class="row justify-content-center">
