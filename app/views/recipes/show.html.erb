@@ -8,7 +8,7 @@
         <% end %>
       </div>
 
-
+          <!--bookmark logic -->
        <div class="assignment">
        <div class="bookmark-icon">
       <%= link_to recipe_path (@recipe) do %>
@@ -20,8 +20,9 @@
       </div>
       <% end %>
 
-      <h1> Selection of Cook and of Cooking Date </h1>
+       <!--Date pickr -->
 
+      <h1> Selection of Cook and of Cooking Date </h1>
          <% if @menus.any? %>
           <% @menus.each do |menu| %>
             <div class="cook-name">
@@ -31,20 +32,22 @@
         <% else %>
           <p>No cook names found for this recipe</p>
         <% end %>
-      </div>
+        <!--In case a simple form for more data shall be used
+          <%= simple_form_for [@recipe, @menu] do |f| %>
+          <%= f.input :cook_name, as: :string %>
+          <%= f.submit 'Schedule your recipe' %>
+         <% end  %>
+          -->
+       </div>
       <div>
-         <%# <%= simple_form_for @meal do |f| %>
-          <%# <%= f.input :Cookname, as: :string %>
-          <%# <%= f.submit 'Schedule your recipe' %>
-        <%# <% end  %>
        </div>
     </div>
 
       <div class="cards_show2">
         <div class="recipe border-top border-end border-dark">
         <% if @recipe.description.present? %>
-        <h2> Recipe <%= @recipe.duration %>'</h2>
-        <%= @recipe.description %>
+        <h2 class="fw-bold"2> Recipe <span> <%= @recipe.duration %>'</span></h2>
+       <%= @recipe.description %>
         <% end %>
         </div>
 
@@ -55,7 +58,7 @@
             <% @meal_ingredients.each do |meal_ingredient| %>
               <li>
               <%= meal_ingredient.ingredient.ingredient_name %>
-              <%= meal_ingredient.portion %>
+               <p> <%= meal_ingredient.portion %> Union </p>
               </li>
               <% end %>
             </ul>
