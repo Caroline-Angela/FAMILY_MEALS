@@ -35,6 +35,7 @@ class RecipesController < ApplicationController
     # @ingredients = @recipe.ingredients
     @meal_ingredients = @recipe.meal_ingredients
     @menus = @recipe.menus
+    @menu = Menu.new
 
     @comments = Comment.where(user_id: current_user.id)
     # @myrecipes = current_user.recipes
