@@ -4,6 +4,9 @@ class CalendarController < ApplicationController
     @usercalendar = UserCalendar.find_by(user_id: current_user.id)
     @calendar = @usercalendar.calendar
     @menus = Menu.where(calendar_id: @calendar.id).where('date >= ?', Date.today).order(date: :asc)
+
+    @recipes = Recipe.joins(:menus).where(menus: { id: @menus.select(:id) })
+    
   end
 
 end

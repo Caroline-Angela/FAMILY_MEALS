@@ -1,12 +1,16 @@
-<div class="card-menu">
-  <div>
-    <h2> <%= menu.recipe.title %> </h2>
-    <h4> <%= menu.date %> </h4>
-  </div>
-  <div><%= image_tag "icon_cart_v1.jpeg" %>
-    <p>grocery %</p>
-  </div>
-  <div><%= image_tag "logo_MamaPopin_v1.jpeg" %>
-    <p> <%= menu.cook_name %> </p>
-  </div>
+<div class="">
+  <%= link_to recipe_path(menu.recipe) do%>
+    <div class="card-menu">
+      <div>
+        <h2> <%= menu.recipe.title %> </h2>
+        <h4> <%= menu.date %> </h4>
+      </div>
+      <div><%= image_tag "icon_cart_v1.jpeg" %>
+        <p>grocery %</p>
+      </div>
+      <div><%= image_tag "logo_MamaPopin_v1.jpeg" %>
+        <p> <%= menu.cook_name %> </p>
+      </div>
+    </div>
+  <% end %>
 </div>
