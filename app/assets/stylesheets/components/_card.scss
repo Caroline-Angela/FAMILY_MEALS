@@ -8,6 +8,7 @@
   border: 1px solid $blue;
   padding: 5px;
   margin: 5px;
+  justify-content: space-between;
 }
 
 .card-menu img {
@@ -35,4 +36,15 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-recipe {
+  border: 1px solid $blue;
+  background-color: $blue;
+  border-radius: 5px;
+  margin-top:  8px;
+  margin-bottom:  5px;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
 }
