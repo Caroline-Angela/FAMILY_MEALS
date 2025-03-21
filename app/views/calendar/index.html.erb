@@ -1,24 +1,17 @@
 <div class="container">
   <h1>Welcome <strong> <%= @usercalendar.user.first_name.capitalize %> <%= @usercalendar.user.last_name.capitalize %></strong> to your Calendar</h1>
 
+  <% @datecount = Date.today %>
   <% @menus.each do |menu| %>
-    <div class="card-menu">
-      <div>
-        <h2> <%= menu.recipe.title %> </h2>
-        <h4> <%= menu.date %> </h4>
-      </div>
-
-      <div>
-        <%= image_tag "icon_cart_v1.jpeg" %>
-        <p>grocery %</p>
-      </div>
-
-      <div>
-        <%= image_tag "logo_MamaPopin_v1.jpeg" %>
-        <p> <%= menu.cook_name %> </p>
-      </div>
-
-    </div>
+    <% if menu.date == @datecount %>
+      <%= render 'card_full', menu: menu %>
+    <% else %>
+      <%= render 'card_empty', date: @datecount %>
+      <%= render 'card_full', menu: menu %>
+    <% end %>
+    <% @datecount += 1 %>
   <% end %>
+
+    <%= render 'card_empty', date: @datecount + 1%>
 
 </div>
