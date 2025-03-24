@@ -39,7 +39,8 @@ class RecipesController < ApplicationController
 
     @comments = Comment.where(user_id: current_user.id)
     # @myrecipes = current_user.recipes
-     @comments = @recipe.comments
+
+
   end
 
   def new
@@ -64,7 +65,7 @@ class RecipesController < ApplicationController
 
 end
 
-
+private 
 def recipe_params
   params.require(:recipe).permit(:title, :description, :duration, :description_easy, :duration_easy)
 end
