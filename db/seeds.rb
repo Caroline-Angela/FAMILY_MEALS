@@ -19,7 +19,7 @@ user1 = User.create!(
   password: "12345678",
   password_confirmation: "12345678",
   first_name: "Paul",
-  last_name: "Coppée"
+  last_name: "Bocuse"
 )
 
 user2 = User.create!(
