@@ -3,7 +3,8 @@
     <div class="cards_show1">
       <div class="recipe_img" >
         <h1 class="fw-bold"><%= @recipe.title %></h1>
-        <%= image_tag "new_meal_v1.jpeg", alt: "Penne Arrabbiata", width: 200 %>
+         
+        <%= cl_image_tag(@recipe.photo.key, height: 200, width: 200, crop: :fill) %>
         <% if @recipe.present? %>
         <% end %>
       </div>
