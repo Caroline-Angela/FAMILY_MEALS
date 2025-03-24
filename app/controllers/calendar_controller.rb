@@ -19,10 +19,11 @@ class CalendarController < ApplicationController
       .where(menus: { date: today })
       .distinct
 
-      @completed_groceries = Grocery
+    @completed_groceries = Grocery
       .where(completed: true)
       .distinct
 
+    @menu = Menu.new()
 
   end
 
