@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   has_many :comments
   has_many :menus
   has_many :ingredients, through: :meal_ingredients
-
+  has_one_attached :photo
 
 
   private
