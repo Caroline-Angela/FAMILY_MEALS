@@ -14,7 +14,6 @@ export default class extends Controller {
   toggle(event) {
     if (event.currentTarget.innerHTML.includes('fa-regular')) {
       event.currentTarget.innerHTML =` <i class="fa-solid fa-bookmark"></i>`
-      
      } else  {
        event.currentTarget.innerHTML =` <i class="fa-regular fa-bookmark"></i>`
      }
