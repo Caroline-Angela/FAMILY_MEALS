@@ -7,15 +7,14 @@
 
         <form action="/menus" method="post">
           <div class="form-group">
-            <select class="custom-select" required>
+            <select name="menu[recipe_id]" class="custom-select" required>
               <option value="">Choose a meal</option>
                 <% @myrecipes.each do |f| %>
-                  <option value=" <%= f.id%> "><%= f.title %></option>
+                  <option value="<%= f.id%>"><%= f.title %></option>
                 <% end %>
             </select>
             <%= hidden_field_tag 'menu[date]', date %>
             <%= hidden_field_tag 'menu[calendar_id]', @calendar.id %>
-            <%= hidden_field_tag 'menu[recipe_id]', f.id %>
           </div>
           <button type="submit" class="btn btn-alert">Submit</button>
         </form>

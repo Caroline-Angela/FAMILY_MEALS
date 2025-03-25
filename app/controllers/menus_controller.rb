@@ -10,7 +10,7 @@ class MenusController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
-    raise
+
     if @menu.save
       redirect_to calendar_path
     else
