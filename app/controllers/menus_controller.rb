@@ -24,7 +24,9 @@ class MenusController < ApplicationController
     date = menu_params[:date].to_date
     @menu = Menu.new(date: date)
     @menu.recipe = @recipe
-    @calendar = Calendar.last # it is hardcoded for the moment
+    # @calendar = Calendar.last # it is hardcoded for the moment
+    @usercalendar = UserCalendar.find_by(user_id: current_user.id)
+    @calendar = @usercalendar.calendar
     @menu.calendar = @calendar
     @menu.save
     redirect_to recipe_path(@recipe)
