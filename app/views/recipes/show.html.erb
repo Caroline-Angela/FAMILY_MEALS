@@ -10,20 +10,28 @@
       </div>
 
           <!--bookmark logic -->
-       <div class="assignment">
-       <div class="bookmark-icon">
+       <div class="assignment" data-controller="favorite-recipe" >
+       <%= button_tag data: { action:'click->favorite-recipe#toggle' } do %>
+        <i class="fa-regular fa-bookmark"></i>
+        <% end %>
+       <div class="bookmark-icon" data-favorite-recipe-target="img">
+       </div>
       <%= link_to recipe_path (@recipe) do %>
-      <%= image_tag "bookmark_white_v1.jpg" %>
-      <%# <%= image_tag "bookmark_red_v1.jpg" %>
-      <%#  <%#% if @recipe.present? %>
-      <%# <% else %>
-      <%#  <% end %>
       </div>
       <% end %>
-
+      
        <!--Date pickr -->
-
-      <h1> Selection of Cook and of Cooking Date </h1>
+      <div data-controller="insert-in-list" data-insert-in-list-target="items">
+      <h1> Selection of the Cooking Date for the Chef </h1>
+      <%= simple_form_for [@recipe, @menu] do |f| %>
+      <%= f.input :date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+      <div class= "form-actions" data-insert-in-list-target= "form" data-action ="submit->insert-in-list#send">
+      <p>  <%= f.submit 'Schedule your recipe' %>
+      <% end %>
+      </div>
+      <!--End Date pickr -->
          <% if @menus.any? %>
           <% @menus.each do |menu| %>
             <div class="cook-name">
