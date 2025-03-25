@@ -4,10 +4,24 @@
       <p> <em> <%= date %></em> </p>
     </div>
     <div>
-      <p><em><strong>Click to Add a Meal </strong> </em></p>
+
+        <form action="/menus_from_calendar" method="post">
+          <div class="form-group">
+            <select name="menu[recipe_id]" class="custom-select" required>
+              <option value="">Choose a meal</option>
+                <% @myrecipes.each do |f| %>
+                  <option value="<%= f.id%>"><%= f.title %></option>
+                <% end %>
+            </select>
+            <%= hidden_field_tag 'menu[date]', date %>
+            <%= hidden_field_tag 'menu[calendar_id]', @calendar.id %>
+          </div>
+          <button type="submit" class="btn btn-alert">Submit</button>
+        </form>
+
     </div>
     <div>
-      
+
     </div>
 
 </div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "calendar", to: "calendar#index"
+  post "menus_from_calendar", to: "menus#create_from_calendar"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :recipes, except: :update do
     resources :menus, only: :create
-    
+
   end
 
 end
