@@ -1,36 +1,42 @@
 .card-menu {
+  text-decoration: none;
   height: 100px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px $red;
   display: flex;
   align-items: center;
   border: 1px solid $blue;
-  padding: 5px;
+  padding: 2px 2px 2px 15px;
   margin: 5px;
-  justify-content: space-around;
+  justify-content: space-between;
   overflow: visible;
+  border-radius: 5px;
 }
 
 .card-menu img {
-  height: 50px;
+  height: 65px;
   width: auto;
   object-fit: center;
 }
 
 .card-menu h2 {
-  font-size: 17px;
+  text-decoration: none;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
+  color: black;
 }
 
 .card-menu h4 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
+  font-style: italic;
   margin: 0;
-  color: $orange;
+  color: black;
 }
 
 .card-menu p {
+  text-decoration: none;
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
