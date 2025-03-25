@@ -1,6 +1,17 @@
 
     <div class="container">
     <div class="cards_show1">
+    <!--bookmark logic -->
+    <div class="assignment" data-controller="favorite-recipe" >
+      <%= button_tag data: { action:'click->favorite-recipe#toggle' } do %>
+      <i class="fa-regular fa-bookmark"></i>
+      <% end %>
+      <div class="bookmark-icon" data-favorite-recipe-target="img">
+      </div>
+      <%= link_to recipe_path (@recipe) do %>
+      </div>
+       <% end %>
+         <!--End bookmark logic -->
       <div class="recipe_img" >
         <h1 class="fw-bold"><%= @recipe.title %></h1>
 
@@ -9,16 +20,7 @@
         <% end %>
       </div>
 
-          <!--bookmark logic -->
-       <div class="assignment" data-controller="favorite-recipe" >
-       <%= button_tag data: { action:'click->favorite-recipe#toggle' } do %>
-        <i class="fa-regular fa-bookmark"></i>
-        <% end %>
-       <div class="bookmark-icon" data-favorite-recipe-target="img">
-       </div>
-      <%= link_to recipe_path (@recipe) do %>
-      </div>
-      <% end %>
+
 
        <!--Date pickr -->
       <div data-controller="insert-in-list" data-insert-in-list-target="items">
