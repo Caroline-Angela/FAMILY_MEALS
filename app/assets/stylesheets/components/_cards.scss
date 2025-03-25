@@ -1,3 +1,19 @@
+
+.assignment{
+  position: absolute;
+  right: 10px;
+
+  .fa-solid.fa-bookmark {
+    font-size: 50px;
+    color: $red;
+
+      }
+
+  .fa-regular.fa-bookmark{
+    font-size: 50px;
+  }
+}
+
 .cards_show1{
   display: grid;
   grid-template-columns: 1fr;
@@ -5,17 +21,12 @@
   justify-content: space-between;
   margin-bottom: 1rem;
 
-  .fa-solid.fa-bookmark {
-    font-size: 50px;
-    color: $red;
 
-    }
-  .fa-regular.fa-bookmark{
-    font-size: 50px;
-  }
   h1 {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 
@@ -27,11 +38,13 @@
 
   .border-dark {
     --bs-border-opacity: 0.4;
+    padding-right: calc(var(--bs-gutter-x)* .9);
   }
 
   h2 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-top: 5px;
+
   }
 }
