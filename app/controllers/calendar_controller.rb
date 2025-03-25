@@ -6,6 +6,10 @@ class CalendarController < ApplicationController
     @menus = Menu.where(calendar_id: @calendar.id).where('date >= ?', Date.today).order(date: :asc)
 
     @recipes = Recipe.joins(:menus).where(menus: { id: @menus.select(:id) })
+    @myrecipes = current_user.recipes
+            .joins(:comments)
+            .where(comments: { favorite: true })
+            .distinct
     @mealingredients = MealIngredient.all
 
     @all_groceries = Grocery
@@ -23,7 +27,7 @@ class CalendarController < ApplicationController
       .where(completed: true)
       .distinct
 
-    @menu = Menu.new()
+    @menu = Menu.new
 
   end
 
