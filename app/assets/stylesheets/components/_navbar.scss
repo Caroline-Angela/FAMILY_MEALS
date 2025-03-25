@@ -1,13 +1,16 @@
-.navbar-lewagon {
+.navbar-meals {
   justify-content: space-between;
-  background: white;
+  border-bottom: 5px solid $blue;
+  display: flex;
+  height: 14vh;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
+
+.navbar-meals .navbar-brand img {
   width: 80px;
 }
 
@@ -16,6 +19,9 @@
   padding-bottom: 20px;
   justify-content: space-around;
   background: $blue;
+  height: 14vh;
+  position: sticky;
+  bottom: 0;
 }
 
 .navbar-bottom img {

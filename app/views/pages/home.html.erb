@@ -2,16 +2,16 @@
 <div class= "homepage container">
   <%= image_tag "logo_MamaPopin_v1.jpg" %>
 
-  <div class= "container d-flex-vertical align-justify">
+
     <p>Existing User ?</p>
-    <li class="nav-item btn btn-success">
+    <div class="nav-item btn btn-success rounded">
       <%= link_to "Log-in", new_user_session_path, class: "nav-link" %>
-    </li>
+    </div>
 
     <p>New User ?</p>
-    <li class="nav-item btn btn-danger">
+    <div class="nav-item btn btn-danger rounded">
       <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-    </li>
-  </div>
+    </div>
+
 
 </div>

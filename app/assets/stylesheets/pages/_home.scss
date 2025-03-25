@@ -1,7 +1,16 @@
 // Specific CSS for your home-page
 
+body {
+height: 100%;
+margin: 0;
+}
+
 .homepage {
   background-color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .homepage img{

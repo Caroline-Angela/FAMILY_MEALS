@@ -1,12 +1,13 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-meals bg-white">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logo_MamaPopin_v1.jpg" %>
     <% end %>
-
-
     <% if user_signed_in? %>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-link', data: { turbo: false } %>
+      <p>
+          <%= current_user.first_name %>  <%= current_user.last_name %>
+      </p>
+
     <%else  %>
        <%= link_to 'Log in', new_user_session_path, class: 'btn btn-link' %>
     <% end %>
