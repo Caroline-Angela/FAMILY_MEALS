@@ -1,13 +1,13 @@
 .card-menu {
   text-decoration: none;
   height: 100px;
-  background: white;
-  box-shadow: 0 0 2px $red;
+  background: $blue;
+
   display: flex;
   align-items: center;
   border: 1px solid $blue;
-  padding: 2px 2px 2px 15px;
-  margin: 5px;
+  padding: 10px;
+  margin: 6px;
   justify-content: space-between;
   overflow: visible;
   border-radius: 5px;
@@ -22,7 +22,6 @@
 .card-menu h2 {
   text-decoration: none;
   font-size: 18px;
-  font-weight: bold;
   margin: 0;
   color: black;
 }
@@ -32,7 +31,7 @@
   font-weight: bold;
   font-style: italic;
   margin: 0;
-  color: black;
+  color: $purple;
 }
 
 .card-menu p {
@@ -48,8 +47,7 @@
   border: 1px solid $blue;
   background-color: $blue;
   border-radius: 5px;
-  margin-top:  8px;
-  margin-bottom:  5px;
+  margin: 6px;
   justify-content: space-between;
   padding: 10px;
   align-items: center;

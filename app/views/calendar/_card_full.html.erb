@@ -1,8 +1,9 @@
 <div class="" >
-  <%= link_to recipe_path(menu.recipe) do%>
+  <%= link_to recipe_path(menu.recipe), class:"text-decoration-none"  do%>
     <div class="card-menu" >
-      <div class="text-decoration-none">
-        <h2 class="text-decoration-none"> <%= menu.recipe.title %> </h2>
+      <div >
+        <h2 class="text-decoration-none">  <%= menu.recipe.title %> </h2>
+        <p> </p>
         <% if menu.date == Date.today %>
           <h4 > Today </h4>
         <% else %>
@@ -13,9 +14,8 @@
 
 
       <div style="text-align: right">
-        <%= cl_image_tag(menu.recipe.photo.key, height: 100, width: 200, crop: :fill) %>
 
-         <div>
+         <div style="color: $purple">
         <% if @completed_groceries.nil? %>
            <p>0 %</p>
         <% else %>
@@ -36,6 +36,7 @@
              <p> <strong><%= percent%></strong>   %</p>
           <% end %>
         <% end %>
+        <%= cl_image_tag(menu.recipe.photo.key, height: 100, width: 200, crop: :fill, style:"border: 3px solid white") %>
       </div>
       </div>
     </div>

@@ -410,11 +410,10 @@ puts "Groceries created: #{Grocery.count}"
 
 puts "Creating menus."
 # Note : Menu Style 1 = normal. Menu Style 2 = easy
-menu1 = Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Paul", menu_style: 1)
-
-menu3 = Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 1, participants: 4, cook_name: "Peter", menu_style: 1)
-menu4 = Menu.create!(calendar: calendar1, recipe: recipe3, date: Date.today + 3, participants: 4, cook_name: "Lucas", menu_style: 1)
-menu5 = Menu.create!(calendar: calendar1, recipe: recipe4, date: Date.today + 5, participants: 4, cook_name: "Paul", menu_style: 1)
+Menu.create!(calendar: calendar1, recipe: recipe1, date: Date.today, participants: 4, cook_name: "Paul", menu_style: 1)
+Menu.create!(calendar: calendar1, recipe: recipe2, date: Date.today + 1, participants: 4, cook_name: "Peter", menu_style: 1)
+Menu.create!(calendar: calendar1, recipe: recipe3, date: Date.today + 3, participants: 4, cook_name: "Lucas", menu_style: 1)
+Menu.create!(calendar: calendar1, recipe: recipe4, date: Date.today + 5, participants: 4, cook_name: "Paul", menu_style: 1)
 puts "Menus created: #{Menu.count}"
 
 puts "Creating comments."
