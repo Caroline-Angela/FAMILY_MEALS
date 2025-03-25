@@ -1,7 +1,11 @@
 <div class="card-menu" >
 
     <div>
-      <p> <em> <%= date %></em> </p>
+        <% if date == Date.today %>
+          <h4 > Today </h4>
+        <% else %>
+         <h4 > <%= date.strftime("%A %d-%m") %> </h4>
+        <% end %>
     </div>
     <div>
 

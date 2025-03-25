@@ -1,14 +1,21 @@
-<div class="">
-  <%= link_to recipe_path(menu.recipe) do%>
-    <div class="card-menu">
-      <div>
-        <h2> <%= menu.recipe.title %> </h2>
-        <h4> <%= menu.date %> </h4>
+<div class="" >
+  <%= link_to recipe_path(menu.recipe), class:"text-decoration-none"  do%>
+    <div class="card-menu" >
+      <div >
+        <h2 class="text-decoration-none">  <%= menu.recipe.title %> </h2>
+        <p> </p>
+        <% if menu.date == Date.today %>
+          <h4 > Today </h4>
+        <% else %>
+         <h4 > <%= menu.date.strftime("%A %d-%m") %> </h4>
+        <% end %>
       </div>
 
-      <div>
-     
 
+
+      <div style="text-align: right">
+
+         <div style="color: $purple">
         <% if @completed_groceries.nil? %>
            <p>0 %</p>
         <% else %>
@@ -29,11 +36,8 @@
              <p> <strong><%= percent%></strong>   %</p>
           <% end %>
         <% end %>
+        <%= cl_image_tag(menu.recipe.photo.key, height: 100, width: 200, crop: :fill, style:"border: 3px solid white") %>
       </div>
-      <div><%= image_tag "logo_MamaPopin_v1.jpeg" %>
-
-        <h4> <%= menu.cook_name %> </h4>
-
       </div>
     </div>
   <% end %>
