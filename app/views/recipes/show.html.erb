@@ -3,8 +3,8 @@
     <div class="cards_show1">
       <div class="recipe_img" >
         <h1 class="fw-bold"><%= @recipe.title %></h1>
-         
-        <%= cl_image_tag(@recipe.photo.key, height: 200, width: 200, crop: :fill) %>
+
+        <%= cl_image_tag(@recipe.photo.key, height: 350, width: 350, crop: :fill) %>
         <% if @recipe.present? %>
         <% end %>
       </div>
@@ -19,10 +19,10 @@
       <%= link_to recipe_path (@recipe) do %>
       </div>
       <% end %>
-      
+
        <!--Date pickr -->
       <div data-controller="insert-in-list" data-insert-in-list-target="items">
-      <h1> Selection of the Cooking Date for the Chef </h1>
+      <h1> When do we eat this? </h1>
       <%= simple_form_for [@recipe, @menu] do |f| %>
       <%= f.input :date,
             as: :string,
@@ -32,15 +32,20 @@
       <% end %>
       </div>
       <!--End Date pickr -->
-         <% if @menus.any? %>
-          <% @menus.each do |menu| %>
-            <div class="cook-name">
-              <%= menu.cook_name %> <!-- Ensure Menu model has cook_name attribute -->
-            </div>
+
+        <!--Getting right Cookname is Working but not used for the moment -->
+         <%# <% if @menus.any? %>
+          <%# <% @menus.each do |menu| %>
+            <%# <div class="cook-name"> %>
+              <%# <%= menu.cook_name %> <!-- Ensure Menu model has cook_name attribute -->
+            <%# </div>
          <% end %>
-        <% else %>
-          <p>No cook names found for this recipe</p>
-        <% end %>
+        <%# <% else %>
+          <%# <p>When should we eat this?</p> %>
+        <%# <% end %>
+
+         <!--Getting right Cookname is Working but not used for the moment -->
+
         <!--In case a simple form for more data shall be used
           <%= simple_form_for [@recipe, @menu] do |f| %>
           <%= f.input :cook_name, as: :string %>
@@ -48,19 +53,16 @@
          <% end  %>
           -->
        </div>
-      <div>
-       </div>
+
     </div>
 
       <div class="cards_show2">
         <div class="recipe border-top border-end border-dark">
         <% if @recipe.description.present? %>
-        <h2 class="fw-bold"2> Recipe <span> <%= @recipe.duration %>'</span></h2>
+        <h2 class="fw-bold"2> Recipe <span> <%= @recipe.duration %> Min.⏲ </span></h2>
        <%= @recipe.description %>
         <% end %>
-        </div>
 
-        <div class="ingredients border-top border-dark">
         <h2 class="fw-bold"> Ingredients </h2>
           <% if @meal_ingredients.any? %>
           <ul>
