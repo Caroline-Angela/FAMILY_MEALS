@@ -65,7 +65,7 @@ recipe1 = Recipe.create!(
   Serve immediately with lemon wedges, crusty bread, and a side salad.
   Enjoy your delicious Grilled Sardines!",
   duration: 25,
-  description_easy: "Simply some Sardines out of the can.",
+  description_easy: "Sardines with a delicious grilled touch.",
   duration_easy: 2
 )
 
@@ -105,7 +105,7 @@ recipe2 = Recipe.create!(
   Serve the smoked salmon with lemon wedges, fresh dill, and your favorite sides.
   Enjoy your delicious Smoked Salmon! ",
   duration: 45,
-  description_easy: " baked chicken with fewer ingredients.",
+  description_easy: " Smoking salmon is the perfect treat.",
   duration_easy: 35
 )
 
@@ -139,7 +139,7 @@ recipe3 = Recipe.create!(
   Slice the chicken breasts and serve with your favorite sides. Enjoy your perfectly baked chicken!
   This recipe is versatile and can be customized with your preferred seasonings. It's great for meal prep and pairs well with various side dishes. ",
   duration: 45,
-  description_easy: " baked chicken with fewer ingredients.",
+  description_easy: " Delicious baked chicken.",
   duration_easy: 35
 )
 
@@ -216,7 +216,7 @@ recipe6 = Recipe.create!(
   description_easy: "Creamy, But No Cream",
   duration_easy: 20
 )
-file = URI.parse("https://www.simplyrecipes.com/recipes/spaghetti_alla_carbonara/").open
+file = URI.parse("https://tse2.mm.bing.net/th?id=OIP.QV9ghFBPFkK3-SuYzhNDDwHaHW&pid=Api").open
 recipe6.photo.attach(io: file, filename: "spaghetti_carbonara", content_type: "image/jpg")
 recipe6.save
 puts "Is an image attached to #{recipe6.title} ? #{recipe6.photo.attached?}"
@@ -229,7 +229,7 @@ recipe7 = Recipe.create!(
   description_easy: "Easy homemade pizza with fresh ingredients.",
   duration_easy: 30
 )
-file = URI.parse("https://www.simplyrecipes.com/recipes/spaghetti_alla_carbonara/").open
+file = URI.parse("https://tse1.mm.bing.net/th?id=OIP.Ft6idmnInXMCfVWYb4Ym5gHaLH&pid=Api").open
 recipe7.photo.attach(io: file, filename: "margherita_pizza", content_type: "image/jpg")
 recipe7.save
 puts "Is an image attached to #{recipe7.title} ? #{recipe7.photo.attached?}"
@@ -242,7 +242,7 @@ recipe8 = Recipe.create!(
   description_easy: "Quick and easy Caesar salad with grilled chicken.",
   duration_easy: 15
 )
-file = URI.parse("https://www.simplyrecipes.com/recipes/spaghetti_alla_carbonara/").open
+file = URI.parse("https://tse4.mm.bing.net/th?id=OIP.C2vSONUOesXv2-mqKwyNmwHaHa&pid=Api").open
 recipe8.photo.attach(io: file, filename: "chicken_caesar_salad", content_type: "image/jpg")
 recipe8.save
 puts "Is an image attached to #{recipe8.title} ? #{recipe8.photo.attached?}"
@@ -404,7 +404,7 @@ puts "Creating groceries."
   meal_ingredient46, meal_ingredient47, meal_ingredient48, meal_ingredient49, meal_ingredient50,
   meal_ingredient51, meal_ingredient52, meal_ingredient53, meal_ingredient54, meal_ingredient55,
   meal_ingredient56].each do |meal_ingredient|
-  Grocery.create!(meal_ingredient: meal_ingredient, completed: [true, false].sample)
+  Grocery.create!(meal_ingredient: meal_ingredient, completed: false)
 end
 puts "Groceries created: #{Grocery.count}"
 

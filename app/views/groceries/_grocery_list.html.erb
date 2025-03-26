@@ -13,7 +13,7 @@
                  grocery.meal_ingredient.ingredient.category == "Cooking Essentials" ? "tablespoons" : "units" %>
           </p>
         </div>
-        <%= button_to mark_complete_grocery_path(grocery), method: :patch, class: "btn rounded-circle #{grocery.completed ? 'btn-success' : 'btn-info'}" do %>
+        <%= button_to mark_complete_grocery_path(grocery), method: :patch, class: "btn rounded-circle #{grocery.completed ? 'btn-alert' : 'btn-info'}" do %>
           <%= grocery.completed ? '👍🏻' : '🛒' %>
         <% end %>
       </div>

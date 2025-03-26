@@ -28,8 +28,11 @@ class MenusController < ApplicationController
     @usercalendar = UserCalendar.find_by(user_id: current_user.id)
     @calendar = @usercalendar.calendar
     @menu.calendar = @calendar
-    @menu.save
-    redirect_to recipe_path(@recipe)
+    if @menu.save
+      redirect_to calendar_path, notice: "Menu successfully added!"
+    else
+      render :add, status: unprocessable_entity
+    end
 
   end
 

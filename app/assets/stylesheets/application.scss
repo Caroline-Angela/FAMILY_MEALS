@@ -11,3 +11,14 @@
 @import "components/index";
 @import "pages/index";
 
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.yield-container {
+  height: 100%;
+  overflow: scroll;
+  
+}

@@ -1,26 +1,25 @@
 .card-menu {
   text-decoration: none;
-  height: 100px;
+  height: 180px;
   background: $blue;
 
   display: flex;
   align-items: center;
   border: 1px solid $blue;
   padding: 10px;
-  margin: 6px;
+  margin: 16px;
   justify-content: space-between;
   overflow: visible;
   border-radius: 5px;
 }
 
 .card-menu img {
-  height: 65px;
-  width: auto;
-  object-fit: center;
+  height: 120px;
+  width: 180px;
+  object-fit: cover;
 }
 
 .card-menu h2 {
-  text-decoration: none;
   font-size: 18px;
   margin: 0;
   color: black;
@@ -28,6 +27,7 @@
 
 .card-menu h4 {
   font-size: 16px;
+  font-family: $body-font;
   font-weight: bold;
   font-style: italic;
   margin: 0;
@@ -35,22 +35,37 @@
 }
 
 .card-menu p {
-  text-decoration: none;
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
 .card-recipe {
+  height: 90px;
+  display: flex;
   border: 1px solid $blue;
   background-color: $blue;
   border-radius: 5px;
   margin: 6px;
+  border: 1px solid $blue;
   justify-content: space-between;
   padding: 10px;
   align-items: center;
+}
+
+.card-recipe h2 {
+  font-size: 18px;
+  margin: 0;
+  color: black;
+}
+
+.card-recipe h4 {
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 0;
+  color: $purple;
 }
 
 .card-plus {

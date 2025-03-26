@@ -1,0 +1,8 @@
+<%= simple_form_for [@recipe, @menu] do |f| %>
+  <%= f.input :date,
+      as: :string,
+      input_html: { data: { controller: "datepicker" } } %>
+  <div class= "form-actions" data-insert-in-list-target= "form" data-action ="submit->insert-in-list#send">
+  <%= f.submit 'Schedule your recipe', class:"btn btn-success" %>
+  <% end %>
+</div>

@@ -5,9 +5,9 @@
         <h2 class="text-decoration-none">  <%= menu.recipe.title %> </h2>
         <p> </p>
         <% if menu.date == Date.today %>
-          <h4 > Today </h4>
+          <h4 > Today 😋 </h4>
         <% else %>
-         <h4 > <%= menu.date.strftime("%A %d-%m") %> </h4>
+         <h4 > <%= menu.date.strftime("%A %d %B") %> </h4>
         <% end %>
       </div>
 

@@ -4,8 +4,9 @@
       <div class="card-recipe d-flex">
         <div>
 
-          <h6> <em><strong> <%=recipe.title%></strong> </em></h6>
-          <p>
+          <h2>  <%=recipe.title%></h2>
+          <p> </p>
+          <h4> <em>
             <% if @comments.find_by(recipe_id: recipe.id)&.favorite %>
               <% if @menus.where(recipe_id: recipe.id).present? %>
                   <% if @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date < Date.today %>
@@ -13,15 +14,15 @@
                   <%=  @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date.strftime("%m-%d-%y")  %>
                   <% else %>
                   Upcoming in :
-                  <%=  @menus.where(recipe_id: recipe.id).where('date >= ?', Date.today).order(date: :asc).first&.date - Date.today   %> days
+                  <%=  (@menus.where(recipe_id: recipe.id).where('date >= ?', Date.today).order(date: :asc).first&.date - Date.today).to_i   %> days
                   <% end %>
               <% else %>
                 Still to be tried !
               <% end %>
             <% else %>
+             <h4> <%= recipe.description_easy %></h4>
             <% end %>
-
-          </p>
+          </em></h4>
         </div>
         <p><%=recipe.duration%> ' </p>
     </div>
