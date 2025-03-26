@@ -1,4 +1,5 @@
 <div class="container mt-4 homepage">
+  <div data-controller="search-suggestions">
 
   <ul class="nav nav-pills mb-4 tabs-cookbook" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
@@ -8,17 +9,17 @@
       <button class="tab-cookbook <%="active" if @active_tab == "suggestions"%>" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true" data-action="click->search-suggestions#toggleHiddenField">Suggestions</button></li>
   </ul>
 
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane <%="show active" if @active_tab == "myfavorites"%>" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
-      <%= render 'recipes/list', recipes: @myrecipes %>
-      <%= render 'recipes/search' %>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane <%="show active" if @active_tab == "myfavorites"%>" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
+        <%= render 'recipes/search' %>
+        <%= render 'recipes/list', recipes: @myrecipes %>
+      </div>
+
+      <div class="tab-pane <%="show active" if @active_tab == "suggestions"%>" id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
+        <%= render 'recipes/search' %>
+        <%= render 'recipes/list', recipes: @recipes %>
+      </div>
     </div>
 
-    <div class="tab-pane <%="show active" if @active_tab == "suggestions"%>" id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
-      <%= render 'recipes/list', recipes: @recipes %>
-      <%= render 'recipes/search' %>
-    </div>
   </div>
-
-
 </div>
