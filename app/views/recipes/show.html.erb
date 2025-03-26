@@ -1,39 +1,35 @@
-    <div class="container">
-    <div class="cards_show1">
-    <!--bookmark logic -->
-    <div class="assignment" data-controller="favorite-recipe" >
-      <%= button_tag data: { action:'click->favorite-recipe#toggle' } do %>
-      <i class="fa-regular fa-bookmark"></i>
-      <% end %>
-      <div class="bookmark-icon" data-favorite-recipe-target="img">
-      </div>
-      <%= link_to recipe_path (@recipe) do %>
-      </div>
-       <% end %>
-         <!--End bookmark logic -->
-      <div class="recipe_img" >
-        <h1 class="fw-bold"><%= @recipe.title %></h1>
+<div class="container">
+  <div class="cards_show1">
+    <div class="d-flex flex-column align-items-center" >
+      <h1 class="fw-bold">" <%= @recipe.title %> "</h1>
+      <%#     <!--bookmark logic -->
+      <%#    <div class="assignment" data-controller="favorite-recipe" >
+      <%#      <%= button_tag data: { action:'click->favorite-recipe#toggle' } do %>
+      <%#      <i class="fa-regular fa-bookmark"></i>
+      <%#      <% end %>
+      <%#      <div class="bookmark-icon" data-favorite-recipe-target="img">
+      <%#      </div>
+      <%#      <%= link_to recipe_path (@recipe) do %>
+      <%#      </div>
+            <% end %>
+              <!--End bookmark logic -->
 
-        <%= cl_image_tag(@recipe.photo.key, height: 350, width: 350, crop: :fill) %>
-        <% if @recipe.present? %>
-        <% end %>
-      </div>
-
-
+      <%= cl_image_tag(@recipe.photo.key, height: 350, width: 350, crop: :fill) %>
+    </div>
 
        <!--Date pickr -->
-      <div data-controller="insert-in-list" data-insert-in-list-target="items">
-      <h1> When do we eat this? </h1>
+    <div data-controller="insert-in-list" data-insert-in-list-target="items">
+      <h3> When do we eat this? </h3>
       <%= simple_form_for [@recipe, @menu] do |f| %>
       <%= f.input :date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-      <div class= "form-actions" data-insert-in-list-target= "form" data-action ="submit->insert-in-list#send">
-      <p>  <%= f.submit 'Schedule your recipe' %>
-      <% end %>
+        <div class= "form-actions btn" data-insert-in-list-target= "form" data-action ="submit->insert-in-list#send">
+        <%= f.submit 'Schedule your recipe' %>
+        <% end %>
       </div>
+    </div>
       <!--End Date pickr -->
-
         <!--Getting right Cookname is Working but not used for the moment -->
          <%# <% if @menus.any? %>
           <%# <% @menus.each do |menu| %>
@@ -53,31 +49,22 @@
           <%= f.submit 'Schedule your recipe' %>
          <% end  %>
           -->
-       </div>
+  </div>
 
-    </div>
+  <div class="cards_show2">
+    <div class="recipe border-top border-end border-dark">
+      <% if @recipe.description.present? %>
+      <h2 class="fw-bold"2> Recipe <span> <%= @recipe.duration %> Min. ⏲ </span></h2>
+      <%= @recipe.description %>
+      <% end %>
 
-      <div class="cards_show2">
-        <div class="recipe border-top border-end border-dark">
-        <% if @recipe.description.present? %>
-        <h2 class="fw-bold"2> Recipe <span> <%= @recipe.duration %> Min.⏲ </span></h2>
-       <%= @recipe.description %>
+      <h2 class="fw-bold"> Ingredients </h2>
+        <% if @meal_ingredients.any? %>
+          <ul><% @meal_ingredients.each do |meal_ingredient| %>
+            <li><%= meal_ingredient.ingredient.ingredient_name %>
+               <%# <p> <%= meal_ingredient.portion %>
+          <% end %></li></ul>
         <% end %>
-
-        <h2 class="fw-bold"> Ingredients </h2>
-          <% if @meal_ingredients.any? %>
-          <ul>
-            <% @meal_ingredients.each do |meal_ingredient| %>
-              <li>
-              <%= meal_ingredient.ingredient.ingredient_name %>
-               <p> <%= meal_ingredient.portion %> Union </p>
-              </li>
-              <% end %>
-            </ul>
-          <% end %>
       </div>
-      <div class="cards_show2">
-      </div>
-
-    </div>
-    </div>
+  </div>
+</div>

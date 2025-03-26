@@ -9,7 +9,6 @@
   background-color: $light-gray;
   padding: 8px;
   margin-bottom: 8px;
-  opacity: .4;
   cursor: pointer;
   text-decoration: none;
   border: 4px solid transparent;
@@ -17,7 +16,6 @@
 }
 
 .tabs-cookbook .tab-cookbook.active {
-  opacity: 1;
   background-color: $red;
   border-radius: 3px;
 }
