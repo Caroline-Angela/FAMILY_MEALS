@@ -13,22 +13,23 @@
       <%#      </div>
             <% end %>
               <!--End bookmark logic -->
-
       <%= cl_image_tag(@recipe.photo.key, height: 350, width: 350, crop: :fill) %>
     </div>
 
        <!--Date pickr -->
-    <div data-controller="insert-in-list" data-insert-in-list-target="items">
+    <div data-controller="insert-in-list" data-insert-in-list-target="items" class="d-flex flex-column align-items-center">
       <h3> When do we eat this? </h3>
-      <%= simple_form_for [@recipe, @menu] do |f| %>
-      <%= f.input :date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-        <div class= "form-actions btn" data-insert-in-list-target= "form" data-action ="submit->insert-in-list#send">
-        <%= f.submit 'Schedule your recipe' %>
+        <% if  @menus.where(recipe_id: @recipe.id).present? %>
+          <% if @menus.where(recipe_id: @recipe.id).last.date == Date.today %>
+            <p>Today 😋</p>
+          <% else %>
+           <p><%= @menus.where(recipe_id: @recipe.id).last.date.strftime("%B %d") %></p>
+          <% end %>
+        <% else %>
+          <%= render 'recipes/form', recipes: @recipes %>
         <% end %>
-      </div>
     </div>
+
       <!--End Date pickr -->
         <!--Getting right Cookname is Working but not used for the moment -->
          <%# <% if @menus.any? %>
@@ -52,13 +53,13 @@
   </div>
 
   <div class="cards_show2">
-    <div class="recipe border-top border-end border-dark">
+    <div class="recipe border-top">
       <% if @recipe.description.present? %>
       <h2 class="fw-bold"2> Recipe <span> <%= @recipe.duration %> Min. ⏲ </span></h2>
       <%= @recipe.description %>
       <% end %>
 
-      <h2 class="fw-bold"> Ingredients </h2>
+      <h2 class="fw-bold border-top"> Ingredients </h2>
         <% if @meal_ingredients.any? %>
           <ul><% @meal_ingredients.each do |meal_ingredient| %>
             <li><%= meal_ingredient.ingredient.ingredient_name %>
