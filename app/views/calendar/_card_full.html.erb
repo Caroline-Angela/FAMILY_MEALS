@@ -1,44 +1,47 @@
 <div class="" >
   <%= link_to recipe_path(menu.recipe), class:"text-decoration-none"  do%>
     <div class="card-menu" >
-      <div >
+
+      <div class="card-menu-left-text">
         <h2 class="text-decoration-none">  <%= menu.recipe.title %> </h2>
-        <p> </p>
         <% if menu.date == Date.today %>
           <h4 > Today 😋 </h4>
         <% else %>
-         <h4 > <%= menu.date.strftime("%A %d %B") %> </h4>
+         <h4 ><%= menu.date.strftime("%A %d %B") %> </h4>
+        <% end %>
+        <% if current_user.first_name == menu.cook_name%>
+          <p> 🧑‍🍳 : <strong> Me</strong></p>
+        <% else %>
+         <p> 🧑‍🍳 : <%= menu.cook_name %> </p>
         <% end %>
       </div>
-
-
 
       <div style="text-align: right">
-
          <div style="color: $purple">
-        <% if @completed_groceries.nil? %>
-           <p>0 %</p>
-        <% else %>
-          <% @completed_groceries_recipe = Grocery
-                    .joins(meal_ingredient: { recipe: :menus })
-                    .where(groceries: { completed: true })
-                    .where(menus: { id: menu.id })
-                    &.count.to_i %>
-
-          <%  @recipe_groceries = Grocery
-                    .joins(meal_ingredient: { recipe: :menus })
-                    .where(menus: { id: menu.id })
-                    &.count.to_i %>
-          <% if @recipe_groceries == 0  %>
-                  <p> NA %</p>
+          <% if @completed_groceries.nil? %>
+            <p>🛒 0 %</p>
           <% else %>
-           <% percent = (100* @completed_groceries_recipe / @recipe_groceries).to_f %>
-             <p> <strong><%= percent%></strong>   %</p>
+            <% @completed_groceries_recipe = Grocery
+                      .joins(meal_ingredient: { recipe: :menus })
+                      .where(groceries: { completed: true })
+                      .where(menus: { id: menu.id })
+                      &.count.to_i %>
+
+            <%  @recipe_groceries = Grocery
+                      .joins(meal_ingredient: { recipe: :menus })
+                      .where(menus: { id: menu.id })
+                      &.count.to_i %>
+            <% if @recipe_groceries == 0  %>
+              <p> NA %</p>
+            <% else %>
+            <% percent = (100* @completed_groceries_recipe / @recipe_groceries).to_i %>
+              <p style="font-size: 12px"> 🛒   <strong><%= percent%></strong>   %</p>
+            <% end %>
           <% end %>
-        <% end %>
-        <%= cl_image_tag(menu.recipe.photo.key, height: 100, width: 200, crop: :fill, style:"border: 3px solid white") %>
+          <%= cl_image_tag(menu.recipe.photo.key, height: 100, width: 200, crop: :fill, style:"border: 3px solid white") %>
+        </div>
       </div>
-      </div>
+      
     </div>
   <% end %>
 </div>

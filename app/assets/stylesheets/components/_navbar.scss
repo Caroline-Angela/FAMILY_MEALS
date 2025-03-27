@@ -1,6 +1,6 @@
 .navbar-meals {
   justify-content: space-between;
-  border-bottom: 5px solid $blue;
+  border-bottom: 2px solid $blue;
   display: flex;
   height: 14vh;
   position: sticky;
@@ -8,8 +8,6 @@
   background-color: white;
   opacity: 1;
 }
-
-
 
 .navbar-meals .navbar-brand img {
   width: 110px;
@@ -21,7 +19,8 @@
   justify-content: space-around;
   background: $blue;
   height: 8vh;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   bottom: 0;
   border-radius: 30px 30px 0 0;
 }
