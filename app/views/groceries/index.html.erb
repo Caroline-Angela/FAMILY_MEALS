@@ -3,14 +3,14 @@
 
 <!-- groceries Tabs navbar for today/all  -->
 
-  <ul class="nav nav-pills mb-4 tabs-cookbook" id="groceryTabs" role="tablist">
+  <ul class="nav nav-pills mb-4 tabs-groceries" id="groceryTabs" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="tab-cookbook active" id="today-tab" data-bs-toggle="tab" data-bs-target="#today" type="button" role="tab">
+      <button class="tab-groceries active" id="today-tab" data-bs-toggle="tab" data-bs-target="#today" type="button" role="tab">
         Today's Groceries
       </button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="tab-cookbook" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
+      <button class="tab-groceries" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
         All Groceries
       </button>
     </li>
@@ -32,9 +32,9 @@
     </div>
 
     <div class="tab-pane fade" id="all" role="tabpanel">
-      <% @all_groceries.group_by { |g| g.meal_ingredient.recipe }.each do |recipe, groceries| %>
+      <% @all_groceries.group_by { |g| g.meal_ingredient.recipe }.sort_by { |recipe, groceries| recipe.title }.each do |recipe, groceries| %>
         <div class="recipe-section mt-4">
-          <h3><%= recipe.title %></h3>
+          <h3><%= recipe.title %> <%=  %> </h3>
           <%= render 'grocery_list', items: groceries %>
         </div>
       <% end %>

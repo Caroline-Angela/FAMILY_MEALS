@@ -3,6 +3,8 @@ class GroceriesController < ApplicationController
 
   def index
     today = Date.today
+    seven_days = today + 7.days
+
     @today_groceries = Grocery
       .joins(meal_ingredient: { recipe: :menus })
       .includes(meal_ingredient: [:ingredient, :recipe])
@@ -10,7 +12,9 @@ class GroceriesController < ApplicationController
       .distinct
 
     @all_groceries = Grocery
+      .joins(meal_ingredient: { recipe: :menus })
       .includes(meal_ingredient: [:ingredient, :recipe])
+      .where(menus: { date: today..seven_days })
       .distinct
   end
 

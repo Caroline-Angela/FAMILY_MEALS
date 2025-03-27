@@ -3,11 +3,12 @@
 
   <ul class="nav nav-pills mb-4 tabs-cookbook" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="tab-cookbook <%="active" if @active_tab == "myfavorites"%> " id="myrecipes-tab" data-bs-toggle="tab" data-bs-target="#myrecipes" type="button" role="tab" aria-controls="myrecipes" aria-selected="false" data-action="click->search-suggestions#toggleHiddenField">My Recipes</button></li>
+      <button class="tab-cookbook <%="active" if @active_tab == "myfavorites"%> " id="myrecipes-tab" data-bs-toggle="tab" data-bs-target="#myrecipes" type="button" role="tab" aria-controls="myrecipes" aria-selected="false" data-action="click->search-suggestions#toggleHiddenField">Family Recipes</button></li>
 
     <li class=" " role="presentation">
       <button class="tab-cookbook <%="active" if @active_tab == "suggestions"%>" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true" data-action="click->search-suggestions#toggleHiddenField">Suggestions</button></li>
   </ul>
+
 
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane <%="show active" if @active_tab == "myfavorites"%>" id="myrecipes" role="tabpanel" aria-labelledby="myrecipes-tab">
