@@ -2,21 +2,35 @@
 <div class= "homepage container">
   <%= image_tag "logo_MamaPopin_v1.jpg" %>
 
+      <div>
+        <p> </p>
+      </div>
 
     <p>Existing User ?</p>
     <div class="nav-item btn btn-success rounded">
-      <%= link_to "Log-in", new_user_session_path, class: "nav-link" %>
+      <%= link_to "Log-in", new_user_session_path, class: "nav-link", style: "width: 90px"%>
     </div>
 
-<div>
-<p> 
-</p>
-</div>
+      <div>
+        <p> </p>
+      </div>
+      <div>
+        <p> </p>
+      </div>
 
     <p>New User ?</p>
     <div class="nav-item btn btn-danger rounded">
-      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link", style: "width: 90px" %>
     </div>
 
+      <div>
+        <p> </p>
+      </div>
+            <div>
+        <p> </p>
+      </div>
 
+  <% if user_signed_in? %>
+    <%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-link', data: { turbo_method: :delete } %>
+  <% end %>
 </div>
