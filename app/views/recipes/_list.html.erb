@@ -13,8 +13,12 @@
                   Previous :
                   <%=  @menus.where(recipe_id: recipe.id).order(date: :desc).first&.date.strftime("%m-%d-%y")  %>
                   <% else %>
+                    <% if (@menus.where(recipe_id: recipe.id).where('date >= ?', Date.today).order(date: :asc).first&.date - Date.today == 0)%>
+                      Today 😋
+                      <% else %>
                   Upcoming in :
                   <%=  (@menus.where(recipe_id: recipe.id).where('date >= ?', Date.today).order(date: :asc).first&.date - Date.today).to_i   %> days
+                    <% end %>
                   <% end %>
               <% else %>
                 Still to be tried !

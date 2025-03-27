@@ -32,9 +32,9 @@
     </div>
 
     <div class="tab-pane fade" id="all" role="tabpanel">
-      <% @all_groceries.group_by { |g| g.meal_ingredient.recipe }.each do |recipe, groceries| %>
+      <% @all_groceries.group_by { |g| g.meal_ingredient.recipe }.sort_by { |recipe, groceries| recipe.title }.each do |recipe, groceries| %>
         <div class="recipe-section mt-4">
-          <h3><%= recipe.title %></h3>
+          <h3><%= recipe.title %> <%=  %> </h3>
           <%= render 'grocery_list', items: groceries %>
         </div>
       <% end %>
