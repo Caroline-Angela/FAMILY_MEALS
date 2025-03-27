@@ -8,9 +8,43 @@
           <h5> <strong>
             <%= grocery.meal_ingredient.ingredient.ingredient_name %>
           </strong> </h5>
-          <p>Portion: <%= grocery.meal_ingredient.portion %>
-             <%= grocery.meal_ingredient.ingredient.category == "Meat" ? "grams" :
-                 grocery.meal_ingredient.ingredient.category == "Cooking Essentials" ? "tablespoons" : "units" %>
+          <p>Portion: <%= grocery.meal_ingredient.portion.to_i %>
+            <%= case grocery.meal_ingredient.ingredient.category
+                when "Meat"
+                  "grams"
+                when "Fish"
+                  "grams"
+                when "Oil"
+                  "ml"
+                when "Fruit"
+                  "units"
+                when "Vegetable"
+                  "units"
+                when "Seasoning"
+                  "grams"
+                when "Herb"
+                  "grams"
+                when "Sweetener"
+                  "grams"
+                when "Smoking"
+                  "grams"
+                when "Grain"
+                  "grams"
+                when "Dairy"
+                  "grams"
+                when "Sauce"
+                  "ml"
+                when "Pasta"
+                  "grams"
+                when "Bakery"
+                  "grams"
+                when "Milk product"
+                  "grams"
+                when "Spice"
+                  "grams"
+                else
+                  "units"
+                end %>
           </p>
         </div>
         <%= button_to mark_complete_grocery_path(grocery), method: :patch, class: "btn rounded-circle #{grocery.completed ? 'btn-alert' : 'btn-info'}" do %>
